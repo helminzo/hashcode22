@@ -40,7 +40,7 @@ for i in range(int(contributor_count)):
     skill_arr = []
     for skill_no in range(skill_count):
         skill, level = data[person+skill_no+1].split(' ')
-        skill_arr.append([skill,level])
+        skill_arr.append([skill,int(level)])
     
     person += skill_count+1
     contributors[name] = Contributor(name,skill_arr)
@@ -54,8 +54,8 @@ for i in range(int(project_count)):
     role_count = int(role_count)
     for skill_no in range(1,role_count+1):
         skill, level = data[project_no + skill_no].split(' ')
-        skill_arr.append([skill,level])
+        skill_arr.append([skill,int(level)])
     projects[project] = Project(project,skill_arr,duration,best_before,score)
     project_no += role_count+1
     
-# print(contributors['Bob'].skills)
+# print(projects['WebChat'].skills)
