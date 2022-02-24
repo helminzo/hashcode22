@@ -13,10 +13,11 @@ contributors = dict() #contains the contributor objects
 projects = dict() #containes the project objects 
 
 
+## discard name variable?
 class Contributor:
     name = ""
     skills = dict()
-    def __init__(self,_name,_skills):
+    def __init__(self,_name:str,_skills:list):
         self.name = _name
         self.skills = _skills
 
@@ -25,7 +26,8 @@ class Project:
     skills = dict()
     duration = 0
     best_before = 0
-    def __init__(self, _name:str,_skills:list,_duration:int,_best_before:int):
+    def __init__(self, _name:str,_skills:list,_duration:int,_best_before:int, _score:int):
+        self.score = _score
         self.name = _name
         self.skills = _skills
         self.duration = _duration
@@ -53,7 +55,7 @@ for i in range(int(project_count)):
     for skill_no in range(1,role_count+1):
         skill, level = data[project_no + skill_no].split(' ')
         skill_arr.append([skill,level])
-    projects[project] = Project(project,skill_arr,duration,best_before)
+    projects[project] = Project(project,skill_arr,duration,best_before,score)
     project_no += role_count+1
     
-# print(projects)
+print(contributors['Anna'].name)
